@@ -1,6 +1,5 @@
 package com.wex.inventory.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +31,8 @@ public class InventoryController {
         return ResponseEntity.ok(id);
     }
 
-    @GetMapping("/currency/{currency}")
-    public PurchaseResponse getInCurrency(@PathVariable String currency) {
-        return purchaseService.convert(1l, currency);
+    @GetMapping(value = "/currency/{currency}", produces = "application/json")
+    public ResponseEntity<PurchaseResponse> getInCurrency(@PathVariable String currency) {
+        return ResponseEntity.ok(purchaseService.convert(1l, currency));
     }
 }

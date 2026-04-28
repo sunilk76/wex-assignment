@@ -21,8 +21,15 @@ public class FxRateClient {
         // Call Treasury API
         String url = "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/od/rates_of_exchange?filter=record_date:gte:2021-04-01,record_date:lte:2026-03-31";
         ExchangeRateResponse list = restTemplate.getForObject(url, ExchangeRateResponse.class);
-        System.out.println("List is \n"+list);
-        // Parse JSON → map to FxRate objects
-        return new ArrayList<>();
+        List<FxRate> fixRates = new ArrayList<>();
+        list.getData().stream().filter(d->d.getCurrency().equals(currency)).forEach(d->{
+            FxRate rate = new FxRate();
+            rate.setCurrencyCode(currency);
+            rate.setRate(d.getExchangeRate());
+            rate.setDate(d.getRecordDate());
+            rate.setRateDate(d.getEffectiveDate());
+            fixRates.add(rate);
+        });
+        return fixRates;
     }
 }

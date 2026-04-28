@@ -30,7 +30,7 @@ public class PurchaseService {
 
                 LocalDate maxDate = p.getTransactionDate();
                 LocalDate minDate = maxDate.minusMonths(6);
-
+                
                 FxRate rate = rates.stream()
                                 .filter(r -> r.getCurrencyCode().equalsIgnoreCase(currency))
                                 .filter(r -> !r.getDate().isAfter(maxDate)) // ≤ purchase date
