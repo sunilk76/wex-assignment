@@ -1,11 +1,11 @@
-package com.wex.inventory;
+package com.wex.transaction;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InventoryApp {
+public class TransactionApplication {
     public static void main(String[] args) {
-        SpringApplication.run(InventoryApp.class, args);
+        SpringApplication.run(TransactionApplication.class, args);
     }
 }
