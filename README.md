@@ -51,7 +51,7 @@ No external database, web server, or servlet container installation required —
 
 ```bash
 git clone <repository-url>
-cd purchase-transaction
+cd wex-inventory-app
 mvn spring-boot:run
 ```
 
@@ -61,7 +61,7 @@ The application starts on **http://localhost:8080**.
 
 ```bash
 mvn clean package
-java -jar target/purchase-transaction-0.0.1-SNAPSHOT.jar
+java -jar target/wex-inventory-app-1.0.0.jar
 ```
 
 ---
